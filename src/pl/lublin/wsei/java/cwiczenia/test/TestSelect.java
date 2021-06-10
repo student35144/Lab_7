@@ -17,6 +17,10 @@ public class TestSelect {
 
         if(connection!=null) {
             Statement polecenie = connection.createStatement();
+
+            Number dostawa = 100;
+            polecenie.executeUpdate("UPDATE coffee_houses SET COFFEE = COFFEE + 100 WHERE CITY ='SF'");
+
             ResultSet res = polecenie.executeQuery("SELECT * FROM coffee_houses");
             System.out.printf("%10s%20s%7s%7s%7s\n", "STORE_ID", "CITY", "COFFEE", "MERCH", "TOTAL");
             while(res.next()) {
